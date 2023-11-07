@@ -1,0 +1,66 @@
+ALGORITHM Distinct_Sum
+VAR
+    set1: ARRAY_OF INTEGER[4];
+    set2: ARRAY_OF INTEGER[5];
+    sum: INTEGER := 0;
+    flag: BOOLEAN := true;
+BEGIN
+    FOR i FROM 0 TO set2.length STEP 1  DO
+        FOR j FROM 0 TO set1.length STEP 1  DO
+            IF (set2[i]=set1[j]) THEN
+                flag= false;
+                break;
+            END_IF    
+        END_FOR
+        IF (flag=true) THEN
+            sum= sum + set2[i];
+        ELSE
+            flag=true;
+        END_IF
+    END_FOR
+    
+    flag=true;
+    
+    // for the rest of the elements
+
+    FOR i FROM 0 TO s1.length STEP 1  DO   
+        FOR i FROM 0 TO s2.length STEP 1  DO
+             IF (set1[i]=set2[j]) THEN
+                flag= false;
+                break;
+            END_IF    
+        END_FOR
+        IF (flag=true) THEN
+            sum= sum + set1[i];
+        ELSE
+            flag=true;
+        END_IF
+    END_FOR
+    
+    write(sum);
+END
+
+
+PROCEDURE Dot_Product(V1: ARRAY_OF INTEGER[M] V2: ARRAY_OF INTEGER[M])
+VAR
+    ps: INTEGER;
+BEGIN
+    FOR i FROM 0 TO V1.length STEP 1  DO
+        ps= ps + V1[i]*V2[i];
+    END_FOR
+   return(ps);
+END
+
+
+ALGORITHM Orthognal_Vectors
+VAR
+    V1: ARRAY_OF INTEGER[M];
+    V2: ARRAY_OF INTEGER[M];
+BEGIN
+    ps= Dot_Product(V1,V2);
+    IF (ps=0) THEN
+        write('The vectors are Orthognal');
+    ELSE
+        write('The vectors are not Orthognal');    
+    END_IF
+END
